@@ -48,8 +48,8 @@ button {
 .gallery {
     border-radius: 10%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(8, 250px);
     height: 200vh;
     justify-items: center;
 }
@@ -107,6 +107,7 @@ input#keyword {
 .dash-board {
     height: 100px;
     border-radius: 2em;
+    margin-bottom: 20px;
 }
 
 input.keywords {
@@ -184,7 +185,6 @@ img.social {
 
 .gallery img {
     height: 200px;
-    margin: 50px;
     border-radius: 10%;
     cursor: pointer;
 }
