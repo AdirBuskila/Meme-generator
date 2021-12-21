@@ -1,0 +1,110 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="img/favicon.ico">
+</head>
+
+<body onload="init()">
+    <header>
+        <img onclick="showGallery()" class="logo" src="img/LOGO.png" alt="">
+        <div class="nav">
+            <button onclick="showGallery()">Gallery</button>
+            <button onclick="loadMeme()">Memes</button>
+            <button onclick="showAbout()">About</button>
+        </div>
+    </header>
+
+
+    <div class="gallery-container">
+        <div class="dash-board">
+            <form class="form-keywords">
+                <label for="keyword">Choose your Meme by Keyword:</label>
+                <input class="keywords" list="keywords" name="keyword" id="keyword">
+                <datalist id="keywords">
+                  <option value="funny">
+                  <option value="cat">
+                  <option value="dog">
+                  <option value="awkward">
+                  <option value="baby">
+                </datalist>
+            </form>
+            <form class="form-upload">
+                <div class="input-label">
+                    <label class="upload" for="upload"><span class="upload">Upload image</span><img class="upload-img" src="icons/upload-solid.svg"/></label>
+                </div>
+                <input type="file" class="file-input" id="upload" name="upload" onchange="onImgInput(event)" />
+            </form>
+        </div>
+        <div class="gallery">
+        </div>
+    </div>
+
+
+    <div class="meme-editor">
+        <div class="canvas">
+            <canvas width="470px" height="470px"> </canvas>
+        </div>
+        <div class="tool-box">
+            <form id="form-input">
+                <input class="line-input" type="line" name="line">
+            </form>
+            <div class="row-one">
+                <button class="delete" onclick="deleteLine()">🗑</button>
+                <button class="add" onclick="addLine()">+</button>
+                <button class="switch" onclick="switchLine()">⇅</button>
+            </div>
+            <div class="row-two">
+                <form id="form-color">
+                    <input class="font-color" type="color" name="color">
+                </form>
+                <img class="increase" src="icons/increase.png" onclick="increaseFontSize()">
+                <img class="decrease" src="icons/decrease.png" onclick="decreaseFontSize()">
+                <img class="left" src="icons/left.png" onclick="changeLineAlign('right')">
+                <img class="center" src="icons/center.png" onclick="changeLineAlign('center')">
+                <img class="right" src="icons/right.png" onclick="changeLineAlign('left')">
+                <form class="form-fonts">
+                    <label for="fonts">Font:</label>
+                    <select class="fonts" list="fonts" name="font" id="font">
+                      <option value="impact">Impact</option>
+                      <option value="roboto">Roboto</option>
+                      <option value="molala">Mo-la-la</option>
+                    </select>
+                </form>
+            </div>
+            <button class="save" onclick="saveMeme()">Save Meme</button>
+            <a href="#" class="download" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
+        </div>
+    </div>
+    <div class="about">
+        <img class="id" src="img/adir-buskila.jpg" />
+
+        <h3>Adir Buskila</h3>
+        <p>Coding Enthusiast</p>
+        <div class="links">
+            <a href="https://www.facebook.com/adir.buskila/" target="_blank">
+                <img class="social" src="icons/facebook.svg" />
+            </a>
+            <a href="https://www.linkedin.com/in/adir-buskila-b24767213/" target="_blank">
+                <img class="social" src="icons/linkedin.svg" />
+            </a>
+            <a href="https://github.com/AdirBuskila" target="_blank">
+                <img class="social" src="icons/github.svg" />
+            </a>
+        </div>
+    </div>
+    <div class="meme-bar-container">
+        <div class="meme-bar"></div>
+    </div>
+    <div class="msg">Meme Saved!</div>
+    <script src="js/upload.service.js"></script>
+    <script src="js/storrage.service.js"></script>
+    <script src="js/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+</body>
+
+</html>
